@@ -10,6 +10,7 @@ use pocketmine\utils\Config;
 class Main extends PluginBase implements Listener{
     public function onEnable(){
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
+        @mkdir($this->getDataFolder());
         $config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
         if($config->get("popuplar") == null){
             $config->set("popuplar", array("§eEnes§65519", "§6Enes§e5519"));
